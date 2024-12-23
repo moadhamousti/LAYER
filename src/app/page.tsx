@@ -10,17 +10,16 @@ import Navbar from "@/sections/Navbar";
 
 export default function Home() {
     return (
-    <>
-        <Navbar/>
-        <Hero/>
-        <LogoTicker/>
-        <Introduction/>
-        <Features/>
-        <Integrations/>
-        <Faqs/>
-        <CallToAction/>
-        <Footer/>
-    </>
-
+        <>
+            <Navbar />
+            <Hero />
+            <LogoTicker />
+            <Introduction />
+            <Features />
+            <Integrations />
+            <Faqs />
+            <CallToAction />
+            <Footer />
+        </>
     );
 }
