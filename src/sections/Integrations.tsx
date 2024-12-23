@@ -41,7 +41,6 @@ const integrations = [
     },
 ];
 
-
 export type IntegrationsType = typeof integrations;
 
 export default function Integrations() {
@@ -58,13 +57,17 @@ export default function Integrations() {
                     </div>
                     <div className="">
                         <p className="text-white/50 mt-4 text-lg">
-                            Layers seamlessly connects with your favorite tools, making
-                            it easy to plug into any workflow and collaborate across
-                            platforms.
+                            Layers seamlessly connects with your favorite tools,
+                            making it easy to plug into any workflow and
+                            collaborate across platforms.
                         </p>
                         <div className="h-[400px] lg:h-[880px] mt-8 lg:mt-0 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] md:grid grid-cols-2 gap-4">
                             <IntegrationsColumn integrations={integrations} />
-                            <IntegrationsColumn integrations={integrations.slice().reverse()} className="hidden md:flex"/>
+                            <IntegrationsColumn
+                                integrations={integrations.slice().reverse()}
+                                reverse
+                                className="hidden md:flex"
+                            />
                         </div>
                     </div>
                 </div>
