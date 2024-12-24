@@ -57,7 +57,7 @@ export default function Integrations() {
                     </div>
                     <div className="">
                         <p className="text-white/50 mt-4 text-lg">
-                            Layers seamlessly connects with your favorite tools,
+                            Picova seamlessly connects with your favorite tools,
                             making it easy to plug into any workflow and
                             collaborate across platforms.
                         </p>
