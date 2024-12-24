@@ -117,7 +117,7 @@ export default function Navbar() {
                                             </a>
                                         ))}
                                         <Button variant="secondary">Log In</Button>
-                                        <Button variant="primary">Sign Up</Button>
+                                        <Button variant="primary" >Sign Up</Button>
                                     </div>
                                 </motion.div>
                             )}
