@@ -1,3 +1,166 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================== TAILWIND STYLES */
+@layer utilities {
+  /* ===== UTILITIES */
+  .wrapper {
+    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-gray-700;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  /* ===== ALIGNMENTS */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  /* ===== TYPOGRAPHY */
+  .h1-semibold {
+    @apply text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px];
+  }
+
+  .h2-bold {
+    @apply text-[30px] font-bold md:text-[36px] leading-[110%];
+  }
+
+  .h3-bold {
+    @apply font-bold text-[30px] leading-[140%];
+  }
+
+  .p-24-bold {
+    @apply font-bold text-[24px] leading-[120%];
+  }
+
+  .p-20-semibold {
+    @apply font-semibold text-[20px] leading-[140%];
+  }
+
+  .p-20-regular {
+    @apply font-normal text-[20px] leading-[140%];
+  }
+
+  .p-18-semibold {
+    @apply font-semibold text-[18px] leading-[140%];
+  }
+
+  .p-16-semibold {
+    @apply font-semibold text-[16px] leading-[140%];
+  }
+
+  .p-16-medium {
+    @apply font-medium text-[16px] leading-[140%];
+  }
+
+  .p-16-regular {
+    @apply font-normal text-[16px] leading-[140%];
+  }
+
+  .p-14-medium {
+    @apply font-medium text-[14px] leading-[120%];
+  }
+
+  .p-10-medium {
+    @apply font-medium text-[10px] leading-[140%];
+  }
+}
+
+/* ===== AUTH STYLES */
+.auth {
+  @apply flex justify-center items-center min-h-screen w-full;
+}
+
+/* ===== SIDEBAR COMPONENT */
+.sidebar {
+  @apply hidden h-screen w-72 bg-black p-5 shadow-md shadow-gray-800 lg:flex;
+}
+
+.sidebar-logo {
+  @apply flex items-center gap-2 md:py-2;
+}
+
+.sidebar-nav {
+  @apply h-full flex-col justify-between md:flex md:gap-4;
+}
+
+.sidebar-nav_elements {
+  @apply hidden w-full flex-col items-start gap-2 md:flex;
+}
+
+.sidebar-nav_element {
+  @apply flex justify-center items-center p-16-regular w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-lime-500 hover:shadow-inner;
+}
+
+.sidebar-link {
+  @apply flex gap-4 p-4 font-semibold w-full;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem}
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%}
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

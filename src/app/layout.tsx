@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css"; // Adjusted the path for globals.css
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -11,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "Modern Design Tool Landing Page",
-    description: "Created with the help of Frontend Tribe",
+    title: "Picova",
+    description: "Ai SaaS Image Generator ",
 };
 
 export default function RootLayout({
@@ -21,7 +22,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <ClerkProvider>
+        <ClerkProvider
+            appearance={{
+                baseTheme: dark,
+                variables: {
+                    colorPrimary: "#A3E635",
+                },
+            }}
+        >
             <html lang="en">
                 <body
                     className={`${inter.variable} font-sans antialiased bg-neutral-950 text-white`}
