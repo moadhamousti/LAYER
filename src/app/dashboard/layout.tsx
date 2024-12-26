@@ -10,7 +10,7 @@ export default function DashboardLayout({
     return (
         <main className="root">
             <Sidebar/>
-            <MobileNav/>
+            {/* <MobileNav/> */}
             <div className="root-container">
                 <div className="wrapper">{children}</div>
             </div>
