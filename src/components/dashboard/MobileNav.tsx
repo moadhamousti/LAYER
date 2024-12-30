@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Sheet,
     SheetContent,
@@ -11,8 +13,11 @@ import Link from "next/link";
 import logoImage from "@/assets/images/logo.svg";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import HamburgerMenu from "../../../public/assets/icons/menu.svg";
+import { usePathname } from "next/navigation";
+import { navLinks } from "../../../constants";
 
 export default function MobileNav() {
+    const pathname = usePathname();
     return (
         <header className="header">
             <Link href="/" className="flex items-center gap-2 md:py-2">
@@ -22,7 +27,7 @@ export default function MobileNav() {
                 <SignedIn>
                     <UserButton afterSignOutUrl="/" />
                     <Sheet>
-                        <SheetTrigger >
+                        <SheetTrigger>
                             <Image
                                 src={HamburgerMenu}
                                 alt="menu"
@@ -31,17 +36,45 @@ export default function MobileNav() {
                                 height={32}
                             />
                         </SheetTrigger>
-                        <SheetContent>
-                            <SheetHeader>
-                                <SheetTitle>
-                                    Are you absolutely sure?
-                                </SheetTitle>
-                                <SheetDescription>
-                                    This action cannot be undone. This will
-                                    permanently delete your account and remove
-                                    your data from our servers.
-                                </SheetDescription>
-                            </SheetHeader>
+                        <SheetContent className="sheet-content sm:w-80">
+                            <>
+                                <Image
+                                    src="/assets/images/logo-text.svg"
+                                    alt="logo"
+                                    width={152}
+                                    height={23}
+                                />
+
+                                <ul className="header-nav_elements">
+                                    {navLinks.map((link) => {
+                                        const isActive =
+                                            link.route === pathname;
+
+                                        return (
+                                            <li
+                                                key={link.route}
+                                                className={`${
+                                                    isActive && "gradient-text"
+                                                } p-18 flex whitespace-nowrap text-white`}
+                                            >
+                                                <Link
+                                                    className="sidebar-link cursor-pointer"
+                                                    href={link.route}
+                                                >
+                                                    <Image
+                                                        src={link.icon}
+                                                        alt="logo"
+                                                        width={24}
+                                                        height={24}
+                                                        
+                                                    />
+                                                    {link.label}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </>
                         </SheetContent>
                     </Sheet>
                 </SignedIn>
