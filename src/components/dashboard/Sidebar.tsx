@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logoImage from "@/assets/images/logo.svg";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import { navLinks } from "../../../constants";
 import { usePathname } from "next/navigation";
 

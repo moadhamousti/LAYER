@@ -9,22 +9,21 @@ export default function CallToAction() {
     const [scope, animate] = useAnimate();
 
     useEffect(() => {
-        animation.current = animate(
-            scope.current,
-            { x: "-50%" },
-            { duration: 30, ease: "linear", repeat: Infinity }
-        );
+        if (scope.current) {
+            animation.current = animate(
+                scope.current,
+                { x: "-50%" },
+                { duration: 30, ease: "linear", repeat: Infinity }
+            );
+        }
 
-        // animation.current.speed = 1;
-    }, []);
+        // Cleanup if needed
+        return () => animation.current?.stop();
+    }, [scope, animate]);
 
     useEffect(() => {
         if (animation.current) {
-            if (isHovered) {
-                animation.current.speed = 0.5;
-            } else {
-                animation.current.speed = 1;
-            }
+            animation.current.speed = isHovered ? 0.5 : 1;
         }
     }, [isHovered]);
 

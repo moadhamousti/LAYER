@@ -12,13 +12,14 @@ export default function Footer() {
         <section className="py-16">
             <div className="container">
                 <div className="flex flex-col md:flex-row md:justify-between items-center gap-6">
-                    <div className="">
+                    <div>
                         <Image src={logoImage} alt="Logo Image" />
                     </div>
-                    <div className="">
+                    <div>
                         <nav className="flex gap-6">
-                            {footerLinks.map((link) => (
+                            {footerLinks.map((link, index) => (
                                 <a
+                                    key={index} // Add the key prop here
                                     href={link.href}
                                     className="text-white/50 text-sm"
                                 >
