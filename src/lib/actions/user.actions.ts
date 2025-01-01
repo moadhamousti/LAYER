@@ -13,11 +13,16 @@ export async function createUser(user: CreateUserParams) {
 
     const newUser = await User.create(user);
 
+    // Log the new user created
+    console.log('New User Created:', newUser);
+
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
+    console.error('Error creating user:', error); // Detailed error log
     handleError(error);
   }
 }
+
 
 // READ
 export async function getUserById(userId: string) {
