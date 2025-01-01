@@ -5,7 +5,7 @@ import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "../../constants";
-import { FormUrlQueryParams, RemoveUrlQueryParams } from "../../types";
+import { FormUrlQueryParams, RemoveUrlQueryParams } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -14,12 +14,15 @@ export function cn(...inputs: ClassValue[]) {
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
+    // This is a native JavaScript error (e.g., TypeError, RangeError)
     console.error(error.message);
     throw new Error(`Error: ${error.message}`);
   } else if (typeof error === "string") {
+    // This is a string error message
     console.error(error);
     throw new Error(`Error: ${error}`);
   } else {
+    // This is an unknown type of error
     console.error(error);
     throw new Error(`Unknown error: ${JSON.stringify(error)}`);
   }
@@ -82,25 +85,36 @@ export function removeKeysFromQuery({
   return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
 }
 
+// // DEBOUNCE
+// // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// export const debounce = (func: (...args: any[]) => void, delay: number) => {
+//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//   let timeoutId: NodeJS.Timeout | null;
+//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//   return (...args: any[]) => {
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     if (timeoutId) clearTimeout(timeoutId);
+//     timeoutId = setTimeout(() => func.apply(null, args), delay);
+//   };
+// };
+
 // DEBOUNCE
-export const debounce = (func: (...args: unknown[]) => void, delay: number) => {
+export const debounce = <T extends unknown[]>(func: (...args: T) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout | null;
-  return (...args: unknown[]) => {
+  return (...args: T) => {
     if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay); // Use spread operator here
+    timeoutId = setTimeout(() => func(...args), delay);  // Using spread operator instead of apply()
   };
 };
 
+
 // GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
-interface Image {
-  aspectRatio?: string;  // Adjust if there's a specific type for aspectRatio
-  width?: number;
-  height?: number;
-}
 export const getImageSize = (
   type: string,
-  image: Image,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  image: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dimension: "width" | "height"
 ): number => {
   if (type === "fill") {
@@ -134,8 +148,10 @@ export const download = (url: string, filename: string) => {
 };
 
 // DEEP MERGE OBJECTS
-export const deepMergeObjects = (obj1: Record<string, unknown>, obj2: Record<string, unknown>) => {
-  if (obj2 === null || obj2 === undefined) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const deepMergeObjects = (obj1: any, obj2: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if(obj2 === null || obj2 === undefined) {
     return obj1;
   }
 
@@ -149,7 +165,7 @@ export const deepMergeObjects = (obj1: Record<string, unknown>, obj2: Record<str
         obj2[key] &&
         typeof obj2[key] === "object"
       ) {
-        output[key] = deepMergeObjects(obj1[key] as Record<string, unknown>, obj2[key] as Record<string, unknown>);
+        output[key] = deepMergeObjects(obj1[key], obj2[key]);
       } else {
         output[key] = obj1[key];
       }
