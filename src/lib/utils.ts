@@ -5,7 +5,6 @@ import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "../../constants";
-import { FormUrlQueryParams, RemoveUrlQueryParams } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -85,36 +84,20 @@ export function removeKeysFromQuery({
   return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
 }
 
-// // DEBOUNCE
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// export const debounce = (func: (...args: any[]) => void, delay: number) => {
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   let timeoutId: NodeJS.Timeout | null;
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   return (...args: any[]) => {
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     if (timeoutId) clearTimeout(timeoutId);
-//     timeoutId = setTimeout(() => func.apply(null, args), delay);
-//   };
-// };
-
 // DEBOUNCE
-export const debounce = <T extends unknown[]>(func: (...args: T) => void, delay: number) => {
+export const debounce = (func: (...args: any[]) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout | null;
-  return (...args: T) => {
+  return (...args: any[]) => {
     if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);  // Using spread operator instead of apply()
+    timeoutId = setTimeout(() => func.apply(null, args), delay);
   };
 };
-
 
 // GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
 export const getImageSize = (
   type: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dimension: "width" | "height"
 ): number => {
   if (type === "fill") {
@@ -148,9 +131,7 @@ export const download = (url: string, filename: string) => {
 };
 
 // DEEP MERGE OBJECTS
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const deepMergeObjects = (obj1: any, obj2: any) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if(obj2 === null || obj2 === undefined) {
     return obj1;
   }

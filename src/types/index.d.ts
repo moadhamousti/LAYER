@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 
-import { IImage } from "@/lib/database/models/image.model";
-
 // ====== USER PARAMS
-export declare type CreateUserParams = {
+declare type CreateUserParams = {
   clerkId: string;
   email: string;
   username: string;
@@ -12,7 +10,7 @@ export declare type CreateUserParams = {
   photo: string;
 };
 
-export declare type UpdateUserParams = {
+declare type UpdateUserParams = {
   firstName: string;
   lastName: string;
   username: string;
@@ -20,16 +18,14 @@ export declare type UpdateUserParams = {
 };
 
 // ====== IMAGE PARAMS
-export declare type AddImageParams = {
+declare type AddImageParams = {
   image: {
     title: string;
     publicId: string;
     transformationType: string;
     width: number;
     height: number;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     config: any;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;
@@ -40,7 +36,7 @@ export declare type AddImageParams = {
   path: string;
 };
 
-export declare type UpdateImageParams = {
+declare type UpdateImageParams = {
   image: {
     _id: string;
     title: string;
@@ -48,9 +44,7 @@ export declare type UpdateImageParams = {
     transformationType: string;
     width: number;
     height: number;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     config: any;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;
@@ -61,7 +55,7 @@ export declare type UpdateImageParams = {
   path: string;
 };
 
-export declare type Transformations = {
+declare type Transformations = {
   restore?: boolean;
   fillBackground?: boolean;
   remove?: {
@@ -78,14 +72,14 @@ export declare type Transformations = {
 };
 
 // ====== TRANSACTION PARAMS
-export declare type CheckoutTransactionParams = {
+declare type CheckoutTransactionParams = {
   plan: string;
   credits: number;
   amount: number;
   buyerId: string;
 };
 
-export declare type CreateTransactionParams = {
+declare type CreateTransactionParams = {
   stripeId: string;
   amount: number;
   credits: number;
@@ -94,7 +88,7 @@ export declare type CreateTransactionParams = {
   createdAt: Date;
 };
 
-export declare type TransformationTypeKey =
+declare type TransformationTypeKey =
   | "restore"
   | "fill"
   | "remove"
@@ -102,29 +96,29 @@ export declare type TransformationTypeKey =
   | "removeBackground";
 
 // ====== URL QUERY PARAMS
-export declare type FormUrlQueryParams = {
+declare type FormUrlQueryParams = {
   searchParams: string;
   key: string;
   value: string | number | null;
 };
 
-export declare type UrlQueryParams = {
+declare type UrlQueryParams = {
   params: string;
   key: string;
   value: string | null;
 };
 
-export declare type RemoveUrlQueryParams = {
+declare type RemoveUrlQueryParams = {
   searchParams: string;
   keysToRemove: string[];
 };
 
-export declare type SearchParamProps = {
+declare type SearchParamProps = {
   params: { id: string; type: TransformationTypeKey };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export declare type TransformationFormProps = {
+declare type TransformationFormProps = {
   action: "Add" | "Update";
   userId: string;
   type: TransformationTypeKey;
@@ -133,40 +127,8 @@ export declare type TransformationFormProps = {
   config?: Transformations | null;
 };
 
-
-// export declare type TransformationFormProps = {
-//   action: "Add" | "Update";
-//   userId: string;
-//   type: TransformationTypeKey;
-//   creditBalance: number;
-//   data?: {
-//     title: string;
-//     transformationType: string;
-//     publicId: string;
-//     secureURL: string;
-//     width?: number;
-//     height?: number;
-//     config?: object;
-//     transformationUrl?: string;
-//     aspectRatio?: string;
-//     color?: string;
-//     prompt?: string;
-//     author: {
-//       _id: string;
-//       firstName: string;
-//       lastName: string;
-//     };
-//     createdAt?: Date;
-//     updatedAt?: Date;
-//   } | null;
-//   config?: Transformations | null;
-// };
-
-
-export declare type TransformedImageProps = {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
+declare type TransformedImageProps = {
   image: any;
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   type: string;
   title: string;
   transformationConfig: Transformations | null;
