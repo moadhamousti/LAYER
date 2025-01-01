@@ -85,9 +85,13 @@ export function removeKeysFromQuery({
 }
 
 // DEBOUNCE
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const debounce = (func: (...args: any[]) => void, delay: number) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   let timeoutId: NodeJS.Timeout | null;
   return (...args: any[]) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (timeoutId) clearTimeout(timeoutId);
     timeoutId = setTimeout(() => func.apply(null, args), delay);
   };
@@ -97,7 +101,9 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
 export const getImageSize = (
   type: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dimension: "width" | "height"
 ): number => {
   if (type === "fill") {
@@ -131,7 +137,9 @@ export const download = (url: string, filename: string) => {
 };
 
 // DEEP MERGE OBJECTS
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const deepMergeObjects = (obj1: any, obj2: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if(obj2 === null || obj2 === undefined) {
     return obj1;
   }

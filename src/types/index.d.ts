@@ -25,7 +25,9 @@ declare type AddImageParams = {
     transformationType: string;
     width: number;
     height: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     config: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;
@@ -44,7 +46,9 @@ declare type UpdateImageParams = {
     transformationType: string;
     width: number;
     height: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     config: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;
@@ -128,7 +132,9 @@ declare type TransformationFormProps = {
 };
 
 declare type TransformedImageProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type: string;
   title: string;
   transformationConfig: Transformations | null;
