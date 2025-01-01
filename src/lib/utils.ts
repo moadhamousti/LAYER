@@ -88,14 +88,15 @@ export function removeKeysFromQuery({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const debounce = (func: (...args: any[]) => void, delay: number) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
   let timeoutId: NodeJS.Timeout | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (...args: any[]) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func.apply(null, args), delay);
+    timeoutId = setTimeout(() => func(...args), delay); // Using spread operator instead of apply
   };
 };
+
 
 // GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
