@@ -1,5 +1,11 @@
+import Header from "@/components/dashboard/Header";
 import React from "react";
 
 export default function AddTransformationsPage() {
-    return (<div>AddTransformationsPage</div>);
+    return (
+    <Header
+        title="Transformation Title"
+        subtitle ="Transformation Subtitle"
+    />
+    );
 }

@@ -364,3 +364,25 @@
   font-weight: 600;
   color: #384262;
 }
+
+/* globals.css or a dedicated CSS file */
+.cl-internal-uf3377, .cl-internal-410xwu {
+  display: none !important;
+}
+
+
+/* .cl-userButtonOuterIdentifier {
+  font-size: 16px;
+  font-weight: 600;
+  color: #384262;
+}
+
+.custom-container svg {
+  display: none;
+}
+
+.custom-container .custom-svg {
+  width: 160px;
+  height: 60px;
+  background-image: url('/assets/logo.svg');
+} */
