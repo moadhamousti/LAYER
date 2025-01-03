@@ -183,7 +183,7 @@ export default function Navbar() {
                                     ))}
                                 </nav>
                             </div>
-                            <div className="flex justify-end items-center gap-4">
+                            <div className="flex justify-end mr-4 items-center gap-4">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -232,8 +232,8 @@ export default function Navbar() {
                                 {isLoaded ? (
                                     isSignedIn ? (
                                         <Button
-                                            variant="primary"
-                                            className="hidden md:inline-flex items-center justify-center"
+                                            variant="secondary"
+                                            className="cursor-pointer hidden md:inline-flex items-center justify-center"
                                         >
                                             <Link href="/dashboard">
                                                 Dashboard
@@ -260,7 +260,7 @@ export default function Navbar() {
                                         </>
                                     )
                                 ) : (
-                                    <div className="hidden md:flex items-center justify-center">
+                                    <div className="hidden md:flex items-center justify-center mr-11">
                                         <Image
                                             src={loaderGif}
                                             alt="Loading..."
@@ -291,9 +291,9 @@ export default function Navbar() {
                                         ))}
                                         {isLoaded ? (
                                             isSignedIn ? (
-                                                <Button variant="primary">
+                                                <Button variant="secondary">
                                                     <Link href="/dashboard">
-                                                        Go to Dashboard
+                                                        Dashboard
                                                     </Link>
                                                 </Button>
                                             ) : (
