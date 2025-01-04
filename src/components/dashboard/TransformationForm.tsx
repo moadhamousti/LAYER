@@ -64,71 +64,71 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
   })
  
   // 2. Define a submit handler.
-//   async function onSubmit(values: z.infer<typeof formSchema>) {
-//     setIsSubmitting(true);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
 
-//     if(data || image) {
-//       const transformationUrl = getCldImageUrl({
-//         width: image?.width,
-//         height: image?.height,
-//         src: image?.publicId,
-//         ...transformationConfig
-//       })
+    if(data || image) {
+      // const transformationUrl = getCldImageUrl({
+      //   width: image?.width,
+      //   height: image?.height,
+      //   src: image?.publicId,
+      //   ...transformationConfig
+      // })
 
-//       const imageData = {
-//         title: values.title,
-//         publicId: image?.publicId,
-//         transformationType: type,
-//         width: image?.width,
-//         height: image?.height,
-//         config: transformationConfig,
-//         secureURL: image?.secureURL,
-//         transformationURL: transformationUrl,
-//         aspectRatio: values.aspectRatio,
-//         prompt: values.prompt,
-//         color: values.color,
-//       }
+      // const imageData = {
+      //   title: values.title,
+      //   publicId: image?.publicId,
+      //   transformationType: type,
+      //   width: image?.width,
+      //   height: image?.height,
+      //   config: transformationConfig,
+      //   secureURL: image?.secureURL,
+      //   transformationURL: transformationUrl,
+      //   aspectRatio: values.aspectRatio,
+      //   prompt: values.prompt,
+      //   color: values.color,
+      // }
 
-//       if(action === 'Add') {
-//         try {
-//           const newImage = await addImage({
-//             image: imageData,
-//             userId,
-//             path: '/'
-//           })
+      // if(action === 'Add') {
+      //   try {
+      //     const newImage = await addImage({
+      //       image: imageData,
+      //       userId,
+      //       path: '/'
+      //     })
 
-//           if(newImage) {
-//             form.reset()
-//             setImage(data)
-//             router.push(`/transformations/${newImage._id}`)
-//           }
-//         } catch (error) {
-//           console.log(error);
-//         }
-//       }
+      //     if(newImage) {
+      //       form.reset()
+      //       setImage(data)
+      //       router.push(`/transformations/${newImage._id}`)
+      //     }
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
 
-//       if(action === 'Update') {
-//         try {
-//           const updatedImage = await updateImage({
-//             image: {
-//               ...imageData,
-//               _id: data._id
-//             },
-//             userId,
-//             path: `/transformations/${data._id}`
-//           })
+      // if(action === 'Update') {
+      //   try {
+      //     const updatedImage = await updateImage({
+      //       image: {
+      //         ...imageData,
+      //         _id: data._id
+      //       },
+      //       userId,
+      //       path: `/transformations/${data._id}`
+      //     })
 
-//           if(updatedImage) {
-//             router.push(`/transformations/${updatedImage._id}`)
-//           }
-//         } catch (error) {
-//           console.log(error);
-//         }
-//       }
-//     }
+      //     if(updatedImage) {
+      //       router.push(`/transformations/${updatedImage._id}`)
+      //     }
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
+    }
 
-//     setIsSubmitting(false)
-//   }
+    setIsSubmitting(false)
+  }
 
   const onSelectFieldHandler = (value: string, onChangeField: (value: string) => void) => {
     const imageSize = aspectRatioOptions[value as AspectRatioKey]
@@ -181,7 +181,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
 
   return (
     <Form {...form}>
-      <form className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField 
           control={form.control}
@@ -263,8 +263,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
           </div>
         )}
 
-        {/* <div className="media-uploader-field">
-          <CustomField 
+        <div className="media-uploader-field">
+          {/* <CustomField 
             control={form.control}
             name="publicId"
             className="flex size-full flex-col"
@@ -277,17 +277,17 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                 type={type}
               />
             )}
-          />
+          /> */}
 
-          <TransformedImage 
+          {/* <TransformedImage 
             image={image}
             type={type}
             title={form.getValues().title}
             isTransforming={isTransforming}
             setIsTransforming={setIsTransforming}
             transformationConfig={transformationConfig}
-          />
-        </div> */}
+          /> */}
+        </div>
 
         <div className="flex flex-col gap-4">
           <Button 
