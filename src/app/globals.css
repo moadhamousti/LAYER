@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -82,6 +84,9 @@
   /* ===== UTILITIES */
   .wrapper {
     @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400 p-16-regular;
+  }
+  .xl\:grid-cols-3 {
+    @apply grid-cols-3;
   }
 
   .gradient-text {
@@ -219,7 +224,7 @@
 
   /* Credits Page */
   .credits-list {
-    @apply mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3;
+    @apply mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9;
   }
 
   .credits-item {
@@ -258,7 +263,7 @@
   }
 
   .collection-list {
-    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3;
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2;
   }
 
   .collection-empty {

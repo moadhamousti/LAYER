@@ -24,11 +24,11 @@ export const navLinks = [
       route: "/dashboard/transformations/add/recolor",
       icon: "/assets/icons/filter.svg",
     },
-    {
-      label: "Background Remove",
-      route: "/dashboard/transformations/add/removeBackground",
-      icon: "/assets/icons/camera.svg",
-    },
+    // {
+    //   label: "Background Remove",
+    //   route: "/dashboard/transformations/add/removeBackground",
+    //   icon: "/assets/icons/camera.svg",
+    // },
     {
       label: "Profile",
       route: "/dashboard/profile",

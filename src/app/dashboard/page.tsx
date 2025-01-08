@@ -1,10 +1,23 @@
-import React from "react";
+const Home = async () => {
+ 
 
-export default function Dashboard() {
-    return (
-        <div className="">
-            <p></p>
 
-        </div>
-    );
+  return (
+    <>
+      <section className="home">
+        <h1 className="home-heading">
+          Unleash Your Creative Vision with Pixagine
+        </h1>
+        <ul className="flex-center w-full gap-20">
+          
+        </ul>
+      </section>
+
+      <section className="sm:mt-12">
+        
+      </section>
+    </>
+  )
 }
+
+export default Home

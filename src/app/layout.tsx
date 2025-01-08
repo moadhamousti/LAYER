@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css"; // Adjusted the path for globals.css
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 const inter = Inter({
@@ -37,6 +38,7 @@ export default function RootLayout({
                 >
                     <NextThemesProvider attribute="class" defaultTheme="dark">
                         {children}
+                        <Toaster />
                     </NextThemesProvider>
                 </body>
             </html>

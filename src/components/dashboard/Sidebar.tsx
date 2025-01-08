@@ -21,7 +21,7 @@ export default function Sidebar() {
                     <SignedIn>
                         {/* First List: First 6 Elements */}
                         <ul className="sidebar-nav_elements">
-                            {navLinks.slice(0, 6).map((link) => {
+                            {navLinks.slice(0, 5).map((link) => {
                                 const isActive = link.route === pathname;
 
                                 return (
@@ -57,7 +57,7 @@ export default function Sidebar() {
 
                         {/* Second List: Remaining Elements */}
                         <ul className="sidebar-nav_elements">
-                            {navLinks.slice(6).map((link) => {
+                            {navLinks.slice(5).map((link) => {
                                 const isActive = link.route === pathname;
 
                                 return (

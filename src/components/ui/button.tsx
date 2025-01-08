@@ -71,10 +71,13 @@ const buttonVariants = cva(
       variant: {
         primary: "bg-lime-400 text-neutral-950 border border-lime-400",
         secondary: "border border-white text-white bg-transparent",
+        outline: "border-2 border-lime-400 text-lime-400 bg-transparent",
+        ghost: "border-2 border-transparent text-lime-400 bg-transparent hover:bg-lime-100",
       },
       size: {
         default: "h-12 px-6",
         sm: "h-10 px-4",
+        icon: "h-8 w-8",
       },
     },
     defaultVariants: {
@@ -83,6 +86,8 @@ const buttonVariants = cva(
     },
   }
 );
+
+
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
